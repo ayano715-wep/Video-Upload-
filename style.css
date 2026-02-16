@@ -619,8 +619,8 @@ main{
 @media (min-width:500px) and (max-width:600px) {
     main{
         width:70%;
-        min-height: 50%;
-        height: 45%;
+        min-height: 55%;
+        height: 55%;
     }
     .header h3{
         font-size:90%;
@@ -679,8 +679,8 @@ main{
 @media (min-width:400px) and (max-width:500px) {
     main{
         width:90%;
-        min-height: 50%;
-        height: 50%;
+        min-height: 60%;
+        height: 60%;
     }
     .header h3{
         font-size:90%;
@@ -741,7 +741,7 @@ main{
     main{
         width:90%;
         min-height: 60%;
-        height: 50%;
+        height: 60%;
     }
     .header h3{
         font-size:90%;
