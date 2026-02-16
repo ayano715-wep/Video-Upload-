@@ -76,10 +76,17 @@ app.get('/videos', (req, res) => {
             });
         }
         
-        const videos = files.map(file => ({
-            filename: file,
-            url: `/uploads/${file}`
-        }));
+        // Filter to only include video files
+        const videoExtensions = ['.mp4', '.avi', '.mov', '.mkv', '.webm', '.mpeg', '.mpg', '.ogg'];
+        const videos = files
+            .filter(file => {
+                const ext = path.extname(file).toLowerCase();
+                return videoExtensions.includes(ext);
+            })
+            .map(file => ({
+                filename: file,
+                url: `/uploads/${file}`
+            }));
         
         res.json({
             success: true,

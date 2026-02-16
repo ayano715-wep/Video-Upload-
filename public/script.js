@@ -135,7 +135,11 @@ function showMessage(message, type) {
 
 // Get video MIME type from file extension
 function getVideoMimeType(filename) {
-    const ext = filename.split('.').pop().toLowerCase();
+    const parts = filename.split('.');
+    if (parts.length < 2) {
+        return 'video/mp4'; // Default fallback
+    }
+    const ext = parts.pop().toLowerCase();
     const mimeTypes = {
         'mp4': 'video/mp4',
         'webm': 'video/webm',
