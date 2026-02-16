@@ -146,7 +146,7 @@ async function loadVideos() {
                 videoItem.className = 'video-item';
                 videoItem.innerHTML = `
                     <video controls>
-                        <source src="${video.url}" type="video/mp4">
+                        <source src="${video.url}">
                         Your browser does not support the video tag.
                     </video>
                     <div class="video-item-info">
