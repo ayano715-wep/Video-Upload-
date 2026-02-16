@@ -133,6 +133,22 @@ function showMessage(message, type) {
     }
 }
 
+// Get video MIME type from file extension
+function getVideoMimeType(filename) {
+    const ext = filename.split('.').pop().toLowerCase();
+    const mimeTypes = {
+        'mp4': 'video/mp4',
+        'webm': 'video/webm',
+        'ogg': 'video/ogg',
+        'mov': 'video/quicktime',
+        'avi': 'video/x-msvideo',
+        'mkv': 'video/x-matroska',
+        'mpeg': 'video/mpeg',
+        'mpg': 'video/mpeg'
+    };
+    return mimeTypes[ext] || 'video/mp4';
+}
+
 // Load and display uploaded videos
 async function loadVideos() {
     try {
@@ -144,9 +160,10 @@ async function loadVideos() {
             data.videos.forEach(video => {
                 const videoItem = document.createElement('div');
                 videoItem.className = 'video-item';
+                const mimeType = getVideoMimeType(video.filename);
                 videoItem.innerHTML = `
                     <video controls>
-                        <source src="${video.url}">
+                        <source src="${video.url}" type="${mimeType}">
                         Your browser does not support the video tag.
                     </video>
                     <div class="video-item-info">
